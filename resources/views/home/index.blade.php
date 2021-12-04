@@ -1,6 +1,6 @@
 @extends('layouts.home')
 
-@section('title', 'Ev Kuşu')
+@section('title', 'Ev Kuşu GitHub')
 @section('description')
     Aradığınız ev uygun fiyatla EvciKuş'ta.
 @endsection
