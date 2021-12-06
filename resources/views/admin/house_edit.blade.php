@@ -1,6 +1,12 @@
     @extends('layouts.admin')
 
     @section('title', 'Edit House Page')
+    @section('javascript')
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <!-- include summernote css/js -->
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    @endsection
     @section('content')
 
         <div class="page-wrapper">
@@ -35,7 +41,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card-body">
-                            <form role="form" action="{{route('admin_house_update',['id'=>$data->id])}}" method="post">
+                            <form role="form" action="{{route('admin_house_update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card">
                                     <div class="card-body">
@@ -73,10 +79,27 @@
                                     </div>
                                     <div class="form-group row">
                                         <label>Detail</label>
-                                        <input type="text" name="detail" value="{{$data->detail}}" class="form-control">
+                                        <textarea id="detail" name="detail">{{$data->detail}}</textarea>
+                                        <script>
+                                            $(document).ready(function() {
+                                                $('#detail').summernote();
+                                            });
+                                        </script>
                                     </div>
+                                    <div class="form-group">
                                         <label>Slug</label>
                                         <input type="text" name="slug" value="{{$data->slug}}" class="form-control">
+                                    </div>
+
+                                        <div class="form-group">
+                                            <label>Image</label>
+                                            <input type="file" name="image" value="{{$data->image}}" class="form-control">
+
+                                            @if ($data->image)
+                                                <img src="{{Storage::url($data->image)}}" height="60">
+                                            @endif
+                                        </div>
+
                                         <div class="form-group row">
                                             <label>Status</label>
                                             <select class="form-control select2" name="status" style="width: 100%;">
@@ -85,18 +108,6 @@
                                                 <option >False</option>
 
                                             </select>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-md-3">File Upload</label>
-                                            <div class="col-md-9">
-                                                <div class="custom-file">
-                                                    <input type="file" class="custom-file-input">
-                                                    <label class="custom-file-label" for="validatedCustomFile">Choose
-                                                        file...</label>
-                                                    <div class="invalid-feedback">Example invalid custom file feedback</div>
-                                                </div>
-                                            </div>
                                         </div>
                                         <div class="border-top">
                                             <div class="card-body">

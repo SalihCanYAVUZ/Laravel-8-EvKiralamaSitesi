@@ -66,7 +66,11 @@
                                             <td>{{$rs->title}}</td>
                                             <td>{{$rs->address}}</td>
                                             <td>{{$rs->price}}</td>
-                                            <td>{{$rs->image}}</td>
+                                            <td>
+                                                @if($rs->image)
+                                                    <img src="{{Storage::url($rs->image)}}" height="30" alt="">
+                                                @endif
+                                            </td>
                                             <td>{{$rs->status}}</td>
                                             <td><a href="{{route('admin_house_edit',['id'=> $rs->id])}}"><i class="me-2 mdi mdi-eyedropper"></i></a></td>
                                             <td><a href="{{route('admin_house_delete', ['id'=> $rs->id])}}" onclick="return confirm ('Are you sure?')" ><i class="me-2 mdi mdi-close-outline"></i></a></td>

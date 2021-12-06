@@ -8,6 +8,7 @@ use App\Models\House;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class HouseController extends Controller
 {
@@ -52,6 +53,8 @@ class HouseController extends Controller
         $data->price= $request ->input('price');
         $data->address= $request ->input('address');
         $data->detail= $request ->input('detail');
+        $data->image = Storage::putFile('images', $request->file('image')); //File Upload
+
         $data->save();
         return redirect()->route('admin_house');
     }
@@ -101,6 +104,8 @@ class HouseController extends Controller
         $data->price= $request ->input('price');
         $data->address= $request ->input('address');
         $data->detail= $request ->input('detail');
+        $data->image = Storage::putFile('images', $request->file('image'));
+
         $data->save();
         return redirect()->route('admin_house');
     }
