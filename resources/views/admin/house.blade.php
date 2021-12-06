@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Category List')
+@section('title', 'House List')
 @section('content')
 
     <div class="page-wrapper">
@@ -10,14 +10,12 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-12 d-flex no-block align-items-center">
-                    <div class="card-body"><a href="{{route('admin_category_add')}}"><button type="button" class="btn btn-outline-dark">
-                            Add Category
-                        </button></a></div>
+                    <h3 class="page-title">Houses</h3>
                     <div class="ms-auto text-end">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Category </li>
+                                <li class="breadcrumb-item active" aria-current="page">House </li>
                             </ol>
                         </nav>
                     </div>
@@ -41,30 +39,37 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
-
+                                    <div class="card-body"><a href="{{route('admin_house_add')}}"><button type="button" class="btn btn-outline-dark">
+                                                Add House
+                                            </button></a></div>
                                 </div>
-                                <h5 class="card-title">Categories</h5>
+                                <h5 class="card-title"></h5>
                                 <div class="table-responsive">
                                     <table id="zero_config" class="table table-striped table-bordered">
                                         <thead>
                                         <tr>
                                             <th>Id</th>
+                                            <th>Category</th>
                                             <th>Title</th>
-                                            <th>Parent</th>
+                                            <th>Address</th>
+                                            <th>Price</th>
+                                            <th>Image</th>
                                             <th>Status</th>
-                                            <th></th>
-                                            <th>Delete</th>
+                                            <th style="..." colspan="2"> Edit&Delete</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         @foreach($datalist as $rs)
                                         <tr>
                                             <td>{{$rs->id}}</td>
+                                            <td>{{$rs->category_id}}</td>
                                             <td>{{$rs->title}}</td>
-                                            <td>{{$rs->parent_id}}</td>
+                                            <td>{{$rs->address}}</td>
+                                            <td>{{$rs->price}}</td>
+                                            <td>{{$rs->image}}</td>
                                             <td>{{$rs->status}}</td>
-                                            <td><a href="{{route('admin_category_edit',['id'=> $rs->id])}}"><i class="me-2 mdi mdi-eyedropper"></i></a></td>
-                                            <td><a href="{{route('admin_category_delete', ['id'=> $rs->id])}}" onclick="return confirm ('Are you sure?')" ><i class="me-2 mdi mdi-close-outline"></i></a></td>
+                                            <td><a href="{{route('admin_house_edit',['id'=> $rs->id])}}"><i class="me-2 mdi mdi-eyedropper"></i></a></td>
+                                            <td><a href="{{route('admin_house_delete', ['id'=> $rs->id])}}" onclick="return confirm ('Are you sure?')" ><i class="me-2 mdi mdi-close-outline"></i></a></td>
                                         </tr>
                                         @endforeach
                                         </tbody>

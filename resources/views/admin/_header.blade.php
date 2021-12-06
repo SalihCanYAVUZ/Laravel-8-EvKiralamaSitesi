@@ -39,6 +39,7 @@
             <!-- ============================================================== -->
             <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i
                     class="ti-menu ti-close"></i></a>
+
         </div>
         <!-- ============================================================== -->
         <!-- End Logo -->

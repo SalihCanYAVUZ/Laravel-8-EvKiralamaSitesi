@@ -14,8 +14,8 @@
                                              href="{{route('admin_category')}}" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span
                             class="hide-menu">Category</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                             href="widgets.html" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span
-                            class="hide-menu">Houses For Sale</span></a></li>
+                                             href="{{route('admin_house')}}" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span
+                            class="hide-menu">Houses</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                              href="tables.html" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span
                             class="hide-menu">Tables</span></a></li>
