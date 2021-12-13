@@ -56,7 +56,8 @@
 </div>
 </section>
 @section('content')
-    içerik alanı
+
+
 @show
 @include('home._slider')
 @include('home._allcategories')

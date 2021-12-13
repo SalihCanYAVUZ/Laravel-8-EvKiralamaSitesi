@@ -1,4 +1,3 @@
-<!-- Advance Search -->
 <div class="advance-search">
     <div class="container">
         <div class="row justify-content-center">

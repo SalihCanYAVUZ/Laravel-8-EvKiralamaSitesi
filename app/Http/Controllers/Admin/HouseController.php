@@ -30,7 +30,7 @@ class HouseController extends Controller
      */
     public function create()
     {
-        $datalist = Category::all();
+        $datalist = Category::with('children')->get();
         return view('admin.house_add',['datalist' => $datalist]);
     }
 
@@ -79,7 +79,7 @@ class HouseController extends Controller
     public function edit(House $house, $id)
     {
         $data=House::find($id);
-        $datalist = Category::all();
+        $datalist = Category::with('children')->get();
 
         return view('admin.house_edit',['data'=>$data,'datalist'=>$datalist]);
     }
@@ -104,8 +104,10 @@ class HouseController extends Controller
         $data->price= $request ->input('price');
         $data->address= $request ->input('address');
         $data->detail= $request ->input('detail');
-        $data->image = Storage::putFile('images', $request->file('image'));
-
+        if ($request->file('image')!=null)
+        {
+            $data->image = Storage::putFile('images', $request->file('image'));
+        }
         $data->save();
         return redirect()->route('admin_house');
     }

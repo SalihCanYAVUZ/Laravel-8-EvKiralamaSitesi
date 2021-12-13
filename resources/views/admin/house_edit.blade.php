@@ -3,9 +3,7 @@
     @section('title', 'Edit House Page')
     @section('javascript')
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <!-- include summernote css/js -->
-        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+        <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
     @endsection
     @section('content')
 
@@ -46,18 +44,20 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="form-group row">
-                                         <label class="col-md-3 mt-3">Parent</label>
-                                         <div class="col-md-9">
-                                            <select class="select2 form-select shadow-none" name="category_id">
-                                                @foreach($datalist as $rs)
-                                                    <option value="{{$rs->id}}"@if($rs->id==$data->category_id) selected="selected" @endif > {{$rs->title}}  </option>
-                                                @endforeach
-                                            </select>
+                                         <label clas>Category</label>
+                                         <div class="col-md-12">
+                                             <select class="form-control select2" name="parent_id" style="">
+                                                 @foreach($datalist as $rs)
+                                                     <option value="{{$rs->id}}" @if ($rs->id == $data->parent_id) selected="selected" @endif>
+                                                         {{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title)}}
+                                                     </option>
+                                                 @endforeach
+                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-md-3 mt-3">Title</label>
-                                        <div class="col-md-9">
+                                        <label>Title</label>
+                                        <div class="col-md-12">
                                             <input type="text" name="title" value="{{$data->title}}" class="form-control">
                                         </div>
                                     </div>
@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="form-group row">
                                         <label>Price</label>
-                                        <input type="number" value="0" name="price" value="{{$data->price}}" class="form-control">
+                                        <input type="number"  name="price" value="{{$data->price}}" class="form-control">
                                     </div><div class="form-group row">
                                             <label>Address</label>
                                             <input type="text" name="address" value="{{$data->address}}" class="form-control"></div>
@@ -81,9 +81,7 @@
                                         <label>Detail</label>
                                         <textarea id="detail" name="detail">{{$data->detail}}</textarea>
                                         <script>
-                                            $(document).ready(function() {
-                                                $('#detail').summernote();
-                                            });
+                                            CKEDITOR.replace( 'detail' );
                                         </script>
                                     </div>
                                     <div class="form-group">
@@ -93,7 +91,7 @@
 
                                         <div class="form-group">
                                             <label>Image</label>
-                                            <input type="file" name="image" value="{{$data->image}}" class="form-control">
+                                            <input type="file" name="image"  class="form-control">
 
                                             @if ($data->image)
                                                 <img src="{{Storage::url($data->image)}}" height="60">
@@ -121,71 +119,27 @@
                     </div>
                 </div>
 
-                <script src="{{asset('assets')}}/assets/libs/jquery/dist/jquery.min.js"></script>
+                <script src="{{asset('assets')}}/admin/assets/libs/jquery/dist/jquery.min.js"></script>
                 <!-- Bootstrap tether Core JavaScript -->
-                <script src="{{asset('assets')}}/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+                <script src="{{asset('assets')}}/admin/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
                 <!-- slimscrollbar scrollbar JavaScript -->
-                <script src="{{asset('assets')}}/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-                <script src="{{asset('assets')}}/assets/extra-libs/sparkline/sparkline.js"></script>
+                <script src="{{asset('assets')}}/admin/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+                <script src="{{asset('assets')}}/admin/assets/extra-libs/sparkline/sparkline.js"></script>
                 <!--Wave Effects -->
-                <script src="{{asset('assets')}}/dist/js/waves.js"></script>
+                <script src="{{asset('assets')}}/admin/dist/js/waves.js"></script>
                 <!--Menu sidebar -->
-                <script src="{{asset('assets')}}/dist/js/sidebarmenu.js"></script>
+                <script src="{{asset('assets')}}/admin/dist/js/sidebarmenu.js"></script>
                 <!--Custom JavaScript -->
-                <script src="{{asset('assets')}}/dist/js/custom.min.js"></script>
-                <!-- This Page JS -->
-                <script src="{{asset('assets')}}/assets/libs/inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
-                <script src="{{asset('assets')}}/dist/js/pages/mask/mask.init.js"></script>
-                <script src="{{asset('assets')}}/assets/libs/select2/dist/js/select2.full.min.js"></script>
-                <script src="{{asset('assets')}}/assets/libs/select2/dist/js/select2.min.js"></script>
-                <script src="{{asset('assets')}}/assets/libs/jquery-asColor/dist/jquery-asColor.min.js"></script>
-                <script src="{{asset('assets')}}/assets/libs/jquery-asGradient/dist/jquery-asGradient.js"></script>
-                <script src="{{asset('assets')}}/assets/libs/jquery-asColorPicker/dist/jquery-asColorPicker.min.js"></script>
-                <script src="{{asset('assets')}}/assets/libs/jquery-minicolors/jquery.minicolors.min.js"></script>
-                <script src="{{asset('assets')}}/assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-                <script src="{{asset('assets')}}/assets/libs/quill/dist/quill.min.js"></script>
+                <script src="{{asset('assets')}}/admin/dist/js/custom.min.js"></script>
+                <!-- this page js -->
+                <script src="{{asset('assets')}}/admin/assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
+                <script src="{{asset('assets')}}/admin/assets/extra-libs/multicheck/jquery.multicheck.js"></script>
+                <script src="{{asset('assets')}}/admin/assets/extra-libs/DataTables/datatables.min.js"></script>
                 <script>
-                    //***********************************//
-                    // For select 2
-                    //***********************************//
-                    $(".select2").select2();
-
-                    /*colorpicker*/
-                    $('.demo').each(function () {
-                        //
-                        // Dear reader, it's actually very easy to initialize MiniColors. For example:
-                        //
-                        //  $(selector).minicolors();
-                        //
-                        // The way I've done it below is just for the demo, so don't get confused
-                        // by it. Also, data- attributes aren't supported at this time...they're
-                        // only used for this demo.
-                        //
-                        $(this).minicolors({
-                            control: $(this).attr('data-control') || 'hue',
-                            position: $(this).attr('data-position') || 'bottom left',
-
-                            change: function (value, opacity) {
-                                if (!value) return;
-                                if (opacity) value += ', ' + opacity;
-                                if (typeof console === 'object') {
-                                    console.log(value);
-                                }
-                            },
-                            theme: 'bootstrap'
-                        });
-
-                    });
-                    /*datwpicker*/
-                    jQuery('.mydatepicker').datepicker();
-                    jQuery('#datepicker-autoclose').datepicker({
-                        autoclose: true,
-                        todayHighlight: true
-                    });
-                    var quill = new Quill('#editor', {
-                        theme: 'snow'
-                    });
-
+                    /****************************************
+                     *       Basic Table                   *
+                     ****************************************/
+                    $('#zero_config').DataTable();
                 </script>
 
     @endsection

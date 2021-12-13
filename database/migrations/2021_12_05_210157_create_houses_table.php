@@ -15,11 +15,11 @@ class CreateHousesTable extends Migration
     {
         Schema::create('houses', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('title',150 )->nullable();
+            $table->string('title',150 );
             $table->string('keywords' )->nullable();
             $table->string('description')->nullable();
             $table->string('image',75 )->nullable();
-            $table->integer('category_id',150 )->nullable();
+            $table->integer('category_id' )->nullable();
             $table->integer('user_id' )->nullable();
             $table->float('price' )->nullable();
             $table->text('address')->nullable();

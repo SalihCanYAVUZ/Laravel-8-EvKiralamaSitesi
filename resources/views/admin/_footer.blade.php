@@ -4,20 +4,7 @@
     All Rights Reserved by Matrix-admin. Designed and Developed by <a
         href="https://www.wrappixel.com">WrapPixel</a>.
 </footer>
-<!-- ============================================================== -->
-<!-- End footer -->
-<!-- ============================================================== -->
 
-<!-- ============================================================== -->
-<!-- End Page wrapper  -->
-<!-- ============================================================== -->
-
-<!-- ============================================================== -->
-<!-- End Wrapper -->
-<!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- All Jquery -->
-<!-- ============================================================== -->
 <script src="{{asset('assets')}}/admin/assets/libs/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap tether Core JavaScript -->
 <script src="{{asset('assets')}}/admin/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

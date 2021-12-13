@@ -54,15 +54,16 @@
                                             <th>Address</th>
                                             <th>Price</th>
                                             <th>Image</th>
+                                            <th>Image Gallery</th>
                                             <th>Status</th>
-                                            <th style="..." colspan="2"> Edit&Delete</th>
+                                            <th>Edit&Delete</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         @foreach($datalist as $rs)
                                         <tr>
                                             <td>{{$rs->id}}</td>
-                                            <td>{{$rs->category_id}}</td>
+                                            <td>{{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs->category)}}</td>
                                             <td>{{$rs->title}}</td>
                                             <td>{{$rs->address}}</td>
                                             <td>{{$rs->price}}</td>
@@ -71,9 +72,13 @@
                                                     <img src="{{Storage::url($rs->image)}}" height="30" alt="">
                                                 @endif
                                             </td>
+                                            <td><a href="{{route('admin_image_add',['house_id'=> $rs->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')">
+                                                    <img src="{{asset('assets/admin/images')}}/gallery.png" height="30"></a>
+                                            </td>
                                             <td>{{$rs->status}}</td>
                                             <td><a href="{{route('admin_house_edit',['id'=> $rs->id])}}"><i class="me-2 mdi mdi-eyedropper"></i></a></td>
-                                            <td><a href="{{route('admin_house_delete', ['id'=> $rs->id])}}" onclick="return confirm ('Are you sure?')" ><i class="me-2 mdi mdi-close-outline"></i></a></td>
+                                            <td><a href="{{route('admin_house_delete', ['id'=> $rs->id])}}" onclick="return confirm ('Are you sure?')" ><i class="me-2 mdi mdi-close-outline"></i>
+                                                </a></td>
                                         </tr>
                                         @endforeach
                                         </tbody>

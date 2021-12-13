@@ -49,10 +49,10 @@
                                         <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Title</th>
                                             <th>Parent</th>
+                                            <th>Title</th>
                                             <th>Status</th>
-                                            <th></th>
+                                            <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>
                                         </thead>
@@ -60,8 +60,10 @@
                                         @foreach($datalist as $rs)
                                         <tr>
                                             <td>{{$rs->id}}</td>
+                                            <td>
+                                                {{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title)}}
+                                            </td>
                                             <td>{{$rs->title}}</td>
-                                            <td>{{$rs->parent_id}}</td>
                                             <td>{{$rs->status}}</td>
                                             <td><a href="{{route('admin_category_edit',['id'=> $rs->id])}}"><i class="me-2 mdi mdi-eyedropper"></i></a></td>
                                             <td><a href="{{route('admin_category_delete', ['id'=> $rs->id])}}" onclick="return confirm ('Are you sure?')" ><i class="me-2 mdi mdi-close-outline"></i></a></td>
