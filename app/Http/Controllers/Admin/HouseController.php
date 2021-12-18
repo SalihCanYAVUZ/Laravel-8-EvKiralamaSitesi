@@ -51,6 +51,9 @@ class HouseController extends Controller
         $data->category_id= $request ->input('category_id');
         $data->user_id= Auth::id();
         $data->price= $request ->input('price');
+        $data->warming= $request ->input('warming');
+        $data->balcony= $request ->input('balcony');
+        $data->m2= $request ->input('m2');
         $data->address= $request ->input('address');
         $data->detail= $request ->input('detail');
         $data->image = Storage::putFile('images', $request->file('image')); //File Upload
@@ -99,11 +102,11 @@ class HouseController extends Controller
         $data->description = $request ->input('description');
         $data->slug = $request ->input('slug');
         $data->status = $request ->input('status');
-        $data->category_id= $request ->input('category_id');
-        $data->user_id= Auth::id();
-        $data->price= $request ->input('price');
-        $data->address= $request ->input('address');
-        $data->detail= $request ->input('detail');
+        $data->category_id = $request ->input('category_id');
+        $data->user_id = Auth::id();
+        $data->price = $request ->input('price');
+        $data->address = $request ->input('address');
+        $data->detail = $request ->input('detail');
         if ($request->file('image')!=null)
         {
             $data->image = Storage::putFile('images', $request->file('image'));

@@ -7,23 +7,24 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
+
 <section>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <nav class="navbar navbar-expand-lg navbar-light navigation">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="{{route('home')}}">
                         <img src="{{asset('assets')}}/images/logo.png" alt="">
                     </a>
 
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    <button class="navbar-toggler" type="button" style="width: 20px;" data-toggle="collapse" data-target="#navbarSupportedContent"
                             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto main-nav ">
-                            <button class="btn btn-default" type="button" >Home
-                            </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                        <ul class="navbar-nav ml-auto main-nav " >
+                            <a href="{{route('home')}}"> <button class="btn btn-default" type="button" >Home
+                                </button></a>
                             @php
                                 $parentCategories = \App\Http\Controllers\HomeController::categorylist()
                             @endphp
@@ -45,38 +46,51 @@
 
                                 </ul>
                             </div>
+                            <a href="{{route('aboutus')}}"> <button class="btn btn-default" type="button" >Hakkımızda
+                                </button></a>
+                            <a href="{{route('faq')}}"> <button class="btn btn-default" type="button" >SSS
+                                </button></a>
+                            <a href="{{route('contact')}}"> <button class="btn btn-default" type="button" >İletişim
+                                </button></a>
+
                             <li class="nav-item dropdown dropdown-slide">
-                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Web Pages
-                                </button>
-                                <!-- Dropdown list -->
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="about-us.html">About Us</a>
-                                    <a class="dropdown-item" href="contact-us.html">Contact Us</a>
-                                    <a class="dropdown-item" href="user-profile.html">User Profile</a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown dropdown-slide">
-                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Listing
-                                </button>
-                                <!-- Dropdown list -->
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="category.html">Ad-Gird View</a>
-                                    <a class="dropdown-item" href="ad-listing-list.html">Ad-List View</a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown dropdown-slide">
-                                <div class style="width: 200px">
-                                </div>
+                                <div class style="width: 150px"> </div>
                             </li>
 
                         </ul>
-                        <ul class="navbar-nav ml-4 mt-12">
-                            <li class="nav-item">
-                                <a class="nav-link login-button" href="login.html">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white add-button" href="ad-listing.html"><i class="fa fa-plus-circle"></i> Add Listing</a>
-                            </li>
+                        <ul class="navbar-nav ml-4 mt-9">
+                            @auth
+                                <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                                    {{Auth::user()->name}}
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-submenu">
+                                        <a href="{{route('myprofile')}}"> <i class="fa fa-user"></i> Profil</a>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a href="#"> <i class="fa fa-heart"></i> Favoriler</a>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a href="{{route('myreviews')}}"> <i class="fa fa-comments"></i> Yorumlar</a>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a href="#">  <i class="fa fa-cog" aria-hidden="true"></i> Ayarlar </a>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a href="{{route('logout')}}"> <i class="fa fa-sign-out" aria-hidden="true"></i> Logout  </a>
+                                    </li>
+
+                                </ul>
+                                </div>
+                            @endauth
+                                @guest
+                                    <a href="{{route('login')}}"> <button class="btn btn-default" type="button" > <i class="fa fa-sign-out" aria-hidden="true"></i> Login
+                                            </button></a>
+                                    <a href="{{route('register')}}"> <button class="btn btn-default" type="button" >  <i class="fa fa-sign-in" aria-hidden="true"></i> Join
+                                    </button></a>
+                                @endguest
+
                         </ul>
 
                     </div>
@@ -84,15 +98,16 @@
             </div>
         </div>
     </div>
-</section>
-<script>
-    $(document).ready(function(){
-        $('.dropdown-submenu a.test').on("click", function(e){
-            $(this).next('ul').toggle();
-            e.stopPropagation();
-            e.preventDefault();
+    <script>
+        $(document).ready(function(){
+            $('.dropdown-submenu a.test').on("click", function(e){
+                $(this).next('ul').toggle();
+                e.stopPropagation();
+                e.preventDefault();
+            });
         });
-    });
-</script>
+    </script>
+</section>
+
 </body>
 </html>

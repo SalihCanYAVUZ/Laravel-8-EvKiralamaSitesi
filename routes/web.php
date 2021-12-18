@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\HouseController;
+use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,13 +23,22 @@ Route::get('/home2', function () {
 });
 Route::redirect('/anasayfa', '/home')->name('anasayfa');
 
-Route::get('/', function () {
-    return view('home.index');
-});
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/aboutus', [HomeController::class, 'aboutus'])->name('aboutus');
+Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('/aboutus', [HomeController::class, 'aboutus'])->name('aboutus');
+Route::get('/references', [HomeController::class, 'references'])->name('references');
+Route::get('/blankpage', [HomeController::class, 'blankpage'])->name('blankpage');
+Route::post('/sendmessage', [HomeController::class, 'sendmessage'])->name('sendmessage');
+Route::get('/house/{id}/{slug}', [HomeController::class, 'house'])->name('house');
+Route::get('/categoryhouses/{id}/{slug}', [HomeController::class, 'categoryhouses'])->name('categoryhouses');
+Route::get('/addtofav/{id}', [HomeController::class, 'addtofav'])->name('addtofav');
+Route::post('/gethouse', [HomeController::class, 'gethouse'])->name('gethouse');
+Route::get('/houselist/{search}', [HomeController::class, 'houselist'])->name('houselist');
+
 
 //ADMİN
 Route::middleware('auth')->prefix('admin')->group(function () {
@@ -52,6 +64,15 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::get('show', [HouseController::class, 'show'])->name('admin_house_show');
     });
 
+    //Contact Message
+    Route::prefix('messages')->group(function () {
+        Route::get('/', [MessageController::class, 'index'])->name('admin_message');
+        Route::get('edit/{id}', [MessageController::class, 'edit'])->name('admin_message_edit');
+        Route::post('update/{id}', [MessageController::class, 'update'])->name('admin_message_update');
+        Route::get('delete/{id}', [MessageController::class, 'destroy'])->name('admin_message_delete');
+        Route::get('show', [MessageController::class, 'show'])->name('admin_message_show');
+    });
+
     //image
     Route::prefix('image')->group(function () {
         Route::get('create/{house_id}', [\App\Http\Controllers\Admin\ImageController::class, 'create'])->name('admin_image_add');
@@ -60,18 +81,49 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::get('show', [\App\Http\Controllers\Admin\ImageController::class, 'show'])->name('admin_image_show');
     });
 
+    #Review
+    Route::prefix('reivew')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Admin\ReviewController::class, 'index'])->name('admin_review');
+        Route::post('update/{id}', [\App\Http\Controllers\Admin\ReviewController::class, 'update'])->name('admin_review_update');
+        Route::get('delete/{id}', [\App\Http\Controllers\Admin\ReviewController::class, 'destroy'])->name('admin_review_delete');
+        Route::get('show/{id}', [\App\Http\Controllers\Admin\ReviewController::class, 'show'])->name('admin_review_show');
+    });
+
     #Setting
 
     Route::get('setting', [\App\Http\Controllers\Admin\SettingController::class, 'index'])->name('admin_setting');
     Route::post('setting/update', [\App\Http\Controllers\Admin\SettingController::class, 'update'])->name('admin_setting_update');
+
+    //Faq
+    Route::prefix('faq')->group(function () {
+        Route::get('/', [FaqController::class, 'index'])->name('admin_faq');
+        Route::get('create', [FaqController::class, 'create'])->name('admin_faq_add');
+        Route::post('store', [FaqController::class, 'store'])->name('admin_faq_store');
+        Route::get('edit/{id}', [FaqController::class, 'edit'])->name('admin_faq_edit');
+        Route::post('update/{id}', [FaqController::class, 'update'])->name('admin_faq_update');
+        Route::get('delete/{id}', [FaqController::class, 'destroy'])->name('admin_faq_delete');
+        Route::get('show', [FaqController::class, 'show'])->name('admin_faq_show');
+    });
+
 });
 
+Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(function () {
+    Route::get('/', [UserController::class, 'index'])->name('myprofile');
+    Route::get('/myreviews', [UserController::class, 'myreviews'])->name('myreviews');
+    Route::get('/destroymyreview/{id}', [UserController::class, 'destroymyreview'])->name('user_review_delete');
 
+
+});
+
+Route::middleware('auth')->prefix('user')->namespace('user')->group(function () {
+    Route::get('/profile', [UserController::class, 'index'])->name('userprofile');
+
+});
 
 
 Route::get('/admin/login',[HomeController::class, 'login'])->name('admin_login');
 Route::post('/admin/logincheck',[HomeController::class, 'logincheck'])->name('admin_logincheck');
-Route::get('/admin/logout',[HomeController::class, 'logout'])->name('admin_logout');
+Route::get('logout',[HomeController::class, 'logout'])->name('admin_logout');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

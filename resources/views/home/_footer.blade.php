@@ -1,6 +1,6 @@
-<!--============================
-=            Footer            =
-=============================-->
+@php
+    $setting=\App\Http\Controllers\HomeController::getsetting()
+@endphp
 <footer class="footer section section-sm">
     <!-- Container Start -->
     <div class="container">
@@ -9,11 +9,15 @@
                 <!-- About -->
                 <div class="block about">
                     <!-- footer logo -->
-                    <img src="{{asset('assets')}}/images/logo-footer.png" alt="">
+                    <a class="logo-footer" href="{{route('home')}}">
+                    <img src="{{asset('assets')}}/images/logo-footer.png" alt=""></a>
                     <!-- description -->
-                    <p class="alt-color">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p class="alt-color">
+                        <strong>Company:  </strong>{{$setting->company}}<br>
+                        <strong>Phone:  </strong>{{$setting->phone}}<br>
+                        <strong>Fax:  </strong>{{$setting->fax}}<br>
+                        <strong>Email:  </strong>{{$setting->email}}<br>
+                    </p>
                 </div>
             </div>
             <!-- Link list -->
@@ -22,10 +26,10 @@
                     <h4>Site Pages</h4>
                     <ul>
                         <li><a href="#">Boston</a></li>
-                        <li><a href="#">How It works</a></li>
-                        <li><a href="#">Deals & Coupons</a></li>
-                        <li><a href="#">Articls & Tips</a></li>
-                        <li><a href="terms-condition.html">Terms & Conditions</a></li>
+                        <li><a href="{{route('contact')}}">Contact</a></li>
+                        <li><a href="{{route('aboutus')}}">About Us</a></li>
+                        <li><a href="{{route('references')}}">References</a></li>
+                        <li><a href="{{route('admin_login')}}">Login</a></li>
                     </ul>
                 </div>
             </div>
@@ -46,23 +50,6 @@
                     </ul>
                 </div>
             </div>
-            <!-- Promotion -->
-            <div class="col-lg-4 col-md-7">
-                <!-- App promotion -->
-                <div class="block-2 app-promotion">
-                    <div class="mobile d-flex">
-                        <a href="">
-                            <!-- Icon -->
-                            <img src="{{asset('assets')}}/images/footer/phone-icon.png" alt="mobile-icon">
-                        </a>
-                        <p>Get the Dealsy Mobile App and Save more</p>
-                    </div>
-                    <div class="download-btn d-flex my-3">
-                        <a href="#"><img src="{{asset('assets')}}/images/apps/google-play-store.png" class="img-fluid" alt=""></a>
-                        <a href="#" class=" ml-3"><img src="{{asset('assets')}}/images/apps/apple-app-store.png" class="img-fluid" alt=""></a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <!-- Container End -->
@@ -78,16 +65,17 @@
                     <p>Copyright © <script>
                             var CurrentYear = new Date().getFullYear()
                             document.write(CurrentYear)
-                        </script>. All Rights Reserved, theme by <a class="text-primary" href="https://themefisher.com" target="_blank">themefisher.com</a></p>
+                        </script>. All Rights Reserved, {{$setting->company}}</p>
                 </div>
             </div>
             <div class="col-sm-6 col-12">
                 <!-- Social Icons -->
                 <ul class="social-media-icons text-right">
-                    <li><a class="fa fa-facebook" href="https://www.facebook.com/themefisher" target="_blank"></a></li>
-                    <li><a class="fa fa-twitter" href="https://www.twitter.com/themefisher" target="_blank"></a></li>
-                    <li><a class="fa fa-pinterest-p" href="https://www.pinterest.com/themefisher" target="_blank"></a></li>
-                    <li><a class="fa fa-vimeo" href=""></a></li>
+                    @if ($setting->facebook != null)<li><a class="fa fa-facebook" href='{{$setting->facebook}}' target="_blank"></a></li> @endif
+                    @if ($setting->instagram != null)<li><a class="fa fa-instagram" href='{{$setting->instagram}}' target="_blank"></a></li> @endif
+                    @if ($setting->twitter != null)<li><a class="fa fa-twitter" href='{{$setting->twitter}}' target="_blank"></a></li> @endif
+                    @if ($setting->youtube != null)<li><a class="fa fa-youtube" href='{{$setting->twitter}}' target="_blank"></a></li> @endif
+
                 </ul>
             </div>
         </div>

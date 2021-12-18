@@ -70,7 +70,7 @@
                                         <div class="form-group row">
                                             <label>Status</label>
                                             <select class="form-control select2" name="status" style="width: 100%;">
-                                                <option selected="selected">{{$data->title}}</option>
+                                                <option selected="selected">{{$data->status}}</option>
                                                 <option>False</option>
                                                 <option>True</option>
                                             </select>

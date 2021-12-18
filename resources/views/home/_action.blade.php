@@ -1,22 +1,40 @@
-<!--====================================
-=            Call to Action            =
-=====================================-->
-
-<section class="call-to-action overly bg-3 section-sm">
+<section class=" section">
     <!-- Container Start -->
     <div class="container">
-        <div class="row justify-content-md-center text-center">
-            <div class="col-md-8">
-                <div class="content-holder">
-                    <h2>Start today to get more exposure and
-                        grow your business</h2>
-                    <ul class="list-inline mt-30">
-                        <li class="list-inline-item"><a class="btn btn-main" href="ad-listing.html">Add Listing</a></li>
-                        <li class="list-inline-item"><a class="btn btn-secondary" href="category.html">Browser Listing</a></li>
-                    </ul>
+        <div class="row">
+            <div class="col-12">
+                <!-- Section title -->
+                <div class="section-title">
+                    <h2>Son Eklenenler</h2>
+                </div>
+                <div class="row">
+
+                @foreach($last as $rs)
+                    <!-- Category list -->
+                        <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+                            <div class="category-block">
+                                <div class="header">
+                                    <i class="fa fa-home icon-bg-1"></i>
+                                    <a href="{{route('house',['id'=>$rs->id,'slug'=>$rs->slug])}}"> <h4>{{$rs->address}}</h4></a>
+                                </div>
+                                <a href="{{route('house',['id'=>$rs->id,'slug'=>$rs->slug])}}">
+                                    <img src="{{ Storage::url($rs->image)}}" class="img-fluid" alt="" style="height: 200px"></a>
+                                <ul class="category-list" >
+                                    <li class="list-inline-item"><a href="#"> <i class="fa fa-money"></i>
+                                            {{$rs->price}}</a></li>
+                                    <li class="list-inline-item"><a href="{{route('house',['id'=>$rs->id,'slug'=>$rs->slug])}}"><i class="fa fa-check"></i>{{$rs->title}}</a></li>
+                                    <div>
+                                        <br>
+                                        <a href="{{route('addtofav',['id'=>$rs->id])}}"><i style="font-size:28px;" class="fa fa-heart-o" ></i> </a>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div> <!-- /Category List -->
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
     <!-- Container End -->
 </section>
+

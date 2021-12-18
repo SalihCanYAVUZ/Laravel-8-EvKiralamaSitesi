@@ -44,11 +44,11 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="form-group row">
-                                         <label clas>Category</label>
+                                         <label>Category</label>
                                          <div class="col-md-12">
-                                             <select class="form-control select2" name="parent_id" style="">
+                                             <select class="form-control select2" name="category_id" >
                                                  @foreach($datalist as $rs)
-                                                     <option value="{{$rs->id}}" @if ($rs->id == $data->parent_id) selected="selected" @endif>
+                                                     <option value="{{$rs->id}}" @if ($rs->id == $data->category_id) selected="selected" @endif>
                                                          {{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title)}}
                                                      </option>
                                                  @endforeach
@@ -56,29 +56,47 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label>Title</label>
+                                        <label>Başlık</label>
                                         <div class="col-md-12">
                                             <input type="text" name="title" value="{{$data->title}}" class="form-control">
                                         </div>
                                     </div>
                                         <div class="form-group row">
-                                            <label>Keywords</label>
+                                            <label>Anahtar Kelime</label>
                                             <input type="text" name="keywords" value="{{$data->keywords}}" class="form-control">
                                         </div>
                                     <div class="form-group row">
-                                        <label>Description</label>
+                                        <label>Açıklama</label>
                                         <input type="text" name="description" value="{{$data->description}}" class="form-control">
                                     </div>
                                     <div class="form-group row">
-                                        <label>Price</label>
+                                        <label>Fiyat</label>
                                         <input type="number"  name="price" value="{{$data->price}}" class="form-control">
-                                    </div><div class="form-group row">
-                                            <label>Address</label>
+                                    </div>
+                                        <div class="form-group row">
+                                            <label>Isınma Tipi</label>
+                                            <select class="form-control select2" name="warming" style="width: 100%;">
+                                                <option selected="selected">{{$data->warming}}</option>
+                                                <option>Doğalgaz</option>
+                                                <option >Sobalı</option>
+                                                <option >Sobalı</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label>Balkon Sayısı</label>
+                                            <input type="number"  name="balcony" value="{{$data->balcony}}" class="form-control">
+                                        </div>
+                                        <div class="form-group row">
+                                            <label>Metre Kare</label>
+                                            <input type="number"  name="m2" value="{{$data->m2}}" class="form-control">
+                                        </div>
+                                        <div class="form-group row">
+                                            <label>Adres</label>
                                             <input type="text" name="address" value="{{$data->address}}" class="form-control"></div>
                                     <div class="form-group row">
                                     </div>
                                     <div class="form-group row">
-                                        <label>Detail</label>
+                                        <label>Detay</label>
                                         <textarea id="detail" name="detail">{{$data->detail}}</textarea>
                                         <script>
                                             CKEDITOR.replace( 'detail' );

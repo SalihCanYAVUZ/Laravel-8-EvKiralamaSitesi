@@ -10,12 +10,12 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-12 d-flex no-block align-items-center">
-                    <h3 class="page-title">Houses</h3>
+                    <h3 class="page-title">Evler</h3>
                     <div class="ms-auto text-end">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">House </li>
+                                <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Evler </li>
                             </ol>
                         </nav>
                     </div>
@@ -40,7 +40,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="card-body"><a href="{{route('admin_house_add')}}"><button type="button" class="btn btn-outline-dark">
-                                                Add House
+                                                Ev Ekle
                                             </button></a></div>
                                 </div>
                                 <h5 class="card-title"></h5>
@@ -49,24 +49,30 @@
                                         <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Category</th>
-                                            <th>Title</th>
-                                            <th>Address</th>
-                                            <th>Price</th>
-                                            <th>Image</th>
-                                            <th>Image Gallery</th>
-                                            <th>Status</th>
-                                            <th>Edit&Delete</th>
+                                            <th>Kategori</th>
+                                            <th>Başlık</th>
+                                            <th>Adres</th>
+                                            <th>Fiyat</th>
+                                            <th>Isınma Tipi</th>
+                                            <th>Balkon Sayısı</th>
+                                            <th>Metre Kare</th>
+                                            <th>Resim</th>
+                                            <th>Galeri</th>
+                                            <th>Statü</th>
+                                            <th>Düzenle&Sil</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         @foreach($datalist as $rs)
                                         <tr>
                                             <td>{{$rs->id}}</td>
-                                            <td>{{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs->category)}}</td>
+                                            <td>{{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs->category, $rs->category->title)}}</td>
                                             <td>{{$rs->title}}</td>
                                             <td>{{$rs->address}}</td>
                                             <td>{{$rs->price}}</td>
+                                            <td>{{$rs->warming}}</td>
+                                            <td>{{$rs->balcony}}</td>
+                                            <td>{{$rs->m2}}</td>
                                             <td>
                                                 @if($rs->image)
                                                     <img src="{{Storage::url($rs->image)}}" height="30" alt="">
@@ -76,8 +82,8 @@
                                                     <img src="{{asset('assets/admin/images')}}/gallery.png" height="30"></a>
                                             </td>
                                             <td>{{$rs->status}}</td>
-                                            <td><a href="{{route('admin_house_edit',['id'=> $rs->id])}}"><i class="me-2 mdi mdi-eyedropper"></i></a></td>
-                                            <td><a href="{{route('admin_house_delete', ['id'=> $rs->id])}}" onclick="return confirm ('Are you sure?')" ><i class="me-2 mdi mdi-close-outline"></i>
+                                            <td><a href="{{route('admin_house_edit',['id'=> $rs->id])}}"><i class="me-2 mdi mdi-eyedropper"></i></a>
+                                            <a href="{{route('admin_house_delete', ['id'=> $rs->id])}}" onclick="return confirm ('Are you sure?')" ><i class="me-2 mdi mdi-close-outline"></i>
                                                 </a></td>
                                         </tr>
                                         @endforeach

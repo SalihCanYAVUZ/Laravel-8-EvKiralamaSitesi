@@ -54,27 +54,44 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label>Title</label>
+                                        <label>Başlık</label>
                                         <div class="col-md-12">
                                             <input type="text" id="title" name="title" class="form-control">
                                         </div>
                                     </div>
                                         <div class="form-group row">
-                                            <label>Keywords</label>
+                                            <label>Anahtar Kelime</label>
                                             <input type="text" name="keywords" class="form-control">
                                         </div>
                                     <div class="form-group row">
-                                        <label>Description</label>
+                                        <label>Açıklama</label>
                                         <input type="text" name="description" class="form-control">
                                     </div>
                                     <div class="form-group row">
-                                        <label>Price</label>
+                                        <label>Fiyatı</label>
                                         <input type="number" value="0" name="price" class="form-control">
-                                    </div><div class="form-group row">
-                                            <label>Address</label>
+                                    </div>
+                                        <div class="form-group row">
+                                            <label>Adres</label>
                                             <input type="text" name="address" class="form-control"></div>
                                     <div class="form-group row">
                                     </div>
+                                        <div class="form-group row">
+                                            <label>Isınma Tipi</label>
+                                            <select class="form-control select2" name="warming" style="width: 100%;">
+                                                <option selected="selected">Doğalgaz</option>
+                                                <option>Sobalı</option>
+                                                <option>Klima</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label>Balkon Sayısı</label>
+                                            <input type="number" value="0" name="balcony" class="form-control">
+                                        </div>
+                                        <div class="form-group row">
+                                            <label>Metre Kare</label>
+                                            <input type="number" value="0" name="m2" class="form-control">
+                                        </div>
                                         <div class="form-group">
                                             <label>Detail</label>
                                             <textarea id="detail" name="detail"></textarea>
@@ -87,7 +104,7 @@
                                         <input type="text" name="slug" class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <label>Image</label>
+                                            <label>Resim</label>
                                             <input type="file" name="image" class="form-control">
                                         </div>
 
