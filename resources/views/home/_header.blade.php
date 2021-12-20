@@ -72,6 +72,9 @@
                                         <a href="#"> <i class="fa fa-heart"></i> Favoriler</a>
                                     </li>
                                     <li class="dropdown-submenu">
+                                        <a href="{{route('user_house')}}"> <i class="fa fa-home"></i> İlanlarım</a>
+                                    </li>
+                                    <li class="dropdown-submenu">
                                         <a href="{{route('myreviews')}}"> <i class="fa fa-comments"></i> Yorumlar</a>
                                     </li>
                                     <li class="dropdown-submenu">

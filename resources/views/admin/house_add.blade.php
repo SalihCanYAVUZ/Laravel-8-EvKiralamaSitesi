@@ -32,17 +32,17 @@
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
-            <div class="container-fluid">
+
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-12">
+
+
                         <div class="card-body">
                             <form role="form" action="{{route('admin_house_store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card">
-                                    <div class="card-body">
+                                    <div class="card-body col-md-12">
                                         <div class="form-group row">
                                          <label>Category</label>
                                          <div class="col-md-12">
@@ -71,6 +71,10 @@
                                         <label>Fiyatı</label>
                                         <input type="number" value="0" name="price" class="form-control">
                                     </div>
+                                        <div class="form-group row">
+                                            <label>Telefon Numarası</label>
+                                            <input type="text"  name="telno" class="form-control">
+                                        </div>
                                         <div class="form-group row">
                                             <label>Adres</label>
                                             <input type="text" name="address" class="form-control"></div>
@@ -121,11 +125,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                             </form>
                         </div>
-                    </div>
-                </div>
+
+
                 <script src="{{asset('assets')}}/admin/assets/libs/jquery/dist/jquery.min.js"></script>
                 <!-- Bootstrap tether Core JavaScript -->
                 <script src="{{asset('assets')}}/admin/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

@@ -53,7 +53,7 @@
                                             <th>Başlık</th>
                                             <th>Adres</th>
                                             <th>Fiyat</th>
-                                            <th>Isınma Tipi</th>
+                                            <th>Tel No</th>
                                             <th>Balkon Sayısı</th>
                                             <th>Metre Kare</th>
                                             <th>Resim</th>
@@ -70,7 +70,7 @@
                                             <td>{{$rs->title}}</td>
                                             <td>{{$rs->address}}</td>
                                             <td>{{$rs->price}}</td>
-                                            <td>{{$rs->warming}}</td>
+                                            <td>{{$rs->telno}}</td>
                                             <td>{{$rs->balcony}}</td>
                                             <td>{{$rs->m2}}</td>
                                             <td>
@@ -91,8 +91,6 @@
 
 
                                     </table>
-                                    <div class="row"><div class="col-sm-12 col-md-5">
-                                        </div>
                                     </div>
                                 </div>
                             </div>

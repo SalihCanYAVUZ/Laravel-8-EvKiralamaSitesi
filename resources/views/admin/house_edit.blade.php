@@ -79,7 +79,7 @@
                                                 <option selected="selected">{{$data->warming}}</option>
                                                 <option>Doğalgaz</option>
                                                 <option >Sobalı</option>
-                                                <option >Sobalı</option>
+                                                <option >Klimalı</option>
                                             </select>
                                         </div>
                                         <div class="form-group row">
@@ -89,6 +89,10 @@
                                         <div class="form-group row">
                                             <label>Metre Kare</label>
                                             <input type="number"  name="m2" value="{{$data->m2}}" class="form-control">
+                                        </div>
+                                        <div class="form-group row">
+                                            <label>Telefon Numarası</label>
+                                            <input type="text"  name="telno" value="{{$data->telno}}" class="form-control">
                                         </div>
                                         <div class="form-group row">
                                             <label>Adres</label>

@@ -118,6 +118,25 @@ Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(fu
 Route::middleware('auth')->prefix('user')->namespace('user')->group(function () {
     Route::get('/profile', [UserController::class, 'index'])->name('userprofile');
 
+    #House
+    Route::prefix('house')->group(function () {
+        Route::get('/', [\App\Http\Controllers\HouseController::class, 'index'])->name('user_house');
+        Route::get('create', [\App\Http\Controllers\HouseController::class, 'create'])->name('user_house_add');
+        Route::post('store', [\App\Http\Controllers\HouseController::class, 'store'])->name('user_house_store');
+        Route::get('edit/{id}', [\App\Http\Controllers\HouseController::class, 'edit'])->name('user_house_edit');
+        Route::post('update/{id}', [\App\Http\Controllers\HouseController::class, 'update'])->name('user_house_update');
+        Route::get('delete/{id}', [\App\Http\Controllers\HouseController::class, 'destroy'])->name('user_house_delete');
+        Route::get('show', [\App\Http\Controllers\HouseController::class, 'show'])->name('user_house_show');
+    });
+
+    //image
+    Route::prefix('image')->group(function () {
+        Route::get('create/{house_id}', [\App\Http\Controllers\Admin\ImageController::class, 'create'])->name('user_image_add');
+        Route::post('store/{house_id}', [\App\Http\Controllers\Admin\ImageController::class, 'store'])->name('user_image_store');
+        Route::get('delete/{id}/{house_id}', [\App\Http\Controllers\Admin\ImageController::class, 'destroy'])->name('user_image_delete');
+        Route::get('show', [\App\Http\Controllers\Admin\ImageController::class, 'show'])->name('user_image_show');
+    });
+
 });
 
 

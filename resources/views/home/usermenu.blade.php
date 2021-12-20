@@ -13,16 +13,16 @@
                     <!-- Dashboard Links -->
                     <div class="widget user-dashboard-menu">
                         <ul>
-                            <li class="active">
-                                <a href="dashboard-my-ads.html"></a></li>
+                            <li class="">
+                                <a href="{{route('myprofile')}}"><i class="fa fa-user-o"></i> Profilim</a> </li>
                             <li>
-                                <a href="dashboard-favourite-ads.html"><i class="fa fa-bookmark-o"></i> Favorilerim <span>5</span></a>
+                                <a href="dashboard-favourite-ads.html"><i class="fa fa-heart-o"></i> Favorilerim </a>
                             </li>
                             <li>
-                                <a href="dashboard-archived-ads.html"><i class="fa fa-file-archive-o"></i>Archeved Ads <span>12</span></a>
+                                <a href="{{route('user_house')}}"><i class="fa fa-home"></i>İlanlarım </a>
                             </li>
                             <li>
-                                <a href="dashboard-pending-ads.html"><i class="fa fa-bolt"></i> Pending Approval<span>23</span></a>
+                                <a href="dashboard-pending-ads.html"><i class="fa fa-bolt"></i> Pending Approval</a>
                             </li>
                             <li>
                                 <a href="{{route('logout')}}"><i class="fa fa-cog"></i> Logout</a>

@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>EvciKus-Blank Page</title>
+    <title>EvciKus-Kullanıcı Yorumları</title>
 
     <!-- FAVICON -->
     <link href="{{asset('assets')}}/img/favicon.png" rel="shortcut icon">
@@ -44,7 +44,6 @@
 
 <div class="col-12">
     <div class="col-9 col-md-offset-3">
-        <strong><h4> Basic Table</h4></strong>
         <hr>
         <table class="table">
             <thead>

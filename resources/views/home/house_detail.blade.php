@@ -173,7 +173,7 @@
                                             @endforeach
                                         </div>
                                                 <div class="col-md-12">
-                                                    <h4 class="text-uppercase">Yorumunuzu yazınız..</h4>
+                                                    <h4 class="text">Yorumunuzu yazınız..</h4>
                                                     @livewire('review', ['id'=>$data->id])
                                                 </div>
                                     </div>
@@ -188,6 +188,12 @@
                                 <div class="widget price text-center">
                                     <h3>Fiyat</h3>
                                     <h3>{{$data->price}}</h3>
+                                </div>
+                            </div>
+                            <div class="sidebar">
+                                <div class="widget price text-center">
+                                    <h3>İletişim Bilgileri</h3>
+                                    <h3>{{$data->telno}}</h3>
                                 </div>
                             </div>
                             <div class="sidebar">
