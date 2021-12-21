@@ -51,6 +51,7 @@ class HouseController extends Controller
         $data->price= $request ->input('price');
         $data->warming= $request ->input('warming');
         $data->balcony= $request ->input('balcony');
+        $data->telno= $request->input('telno');
         $data->m2= $request ->input('m2');
         $data->address= $request ->input('address');
         $data->detail= $request ->input('detail');

@@ -45,6 +45,7 @@
                 <div class="text-center pt-3 pb-3">
                     <span class="db"><img src="{{asset('assets')}}/admin/assets/images/logo.png" alt="logo" /></span>
                 </div>
+                @include('home.message')
                 <!-- Form -->
                 <form action="{{route('admin_logincheck')}}" method="post">
                     @csrf

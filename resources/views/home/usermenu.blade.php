@@ -22,14 +22,16 @@
                                 <a href="{{route('user_house')}}"><i class="fa fa-home"></i>İlanlarım </a>
                             </li>
                             <li>
-                                <a href="dashboard-pending-ads.html"><i class="fa fa-bolt"></i> Pending Approval</a>
-                            </li>
-                            <li>
                                 <a href="{{route('logout')}}"><i class="fa fa-cog"></i> Logout</a>
                             </li>
-                            <li>
-                                <a href="" data-toggle="modal" data-target="#deleteaccount"><i class="fa fa-power-off"></i>Delete Account</a>
-                            </li>
+                            @php
+                                $userRoles = \Illuminate\Support\Facades\Auth::user()->roles->pluck('name');
+                            @endphp
+                            @if($userRoles->contains('admin'))
+                                <li>
+                                    <a href="{{route('admin_home')}}" target="_blank"><i class="fa fa-cog"></i> Admin Panel</a>
+                                </li>
+                            @endif
                         </ul>
                     </div>
                 </div>

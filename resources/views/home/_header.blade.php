@@ -62,8 +62,8 @@
                             @auth
                                 <div class="dropdown">
                                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-                                    {{Auth::user()->name}}
-                                </button>
+                                    {{Auth::user()->name}}</button>
+
                                 <ul class="dropdown-menu">
                                     <li class="dropdown-submenu">
                                         <a href="{{route('myprofile')}}"> <i class="fa fa-user"></i> Profil</a>
@@ -83,9 +83,18 @@
                                     <li class="dropdown-submenu">
                                         <a href="{{route('logout')}}"> <i class="fa fa-sign-out" aria-hidden="true"></i> Logout  </a>
                                     </li>
+                                    @php
+                                        $userRoles = \Illuminate\Support\Facades\Auth::user()->roles->pluck('name');
+                                    @endphp
+                                    @if($userRoles->contains('admin'))
+                                        <li>
+                                            <a href="{{route('admin_home')}}" target="_blank"><i class="fa fa-cog"></i> Admin Panel</a>
+                                        </li>
+                                    @endif
 
                                 </ul>
                                 </div>
+
                             @endauth
                                 @guest
                                     <a href="{{route('login')}}"> <button class="btn btn-default" type="button" > <i class="fa fa-sign-out" aria-hidden="true"></i> Login
@@ -95,6 +104,7 @@
                                 @endguest
 
                         </ul>
+
 
                     </div>
                 </nav>
