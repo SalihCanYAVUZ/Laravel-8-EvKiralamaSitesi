@@ -46,7 +46,7 @@
             @include('home.usermenu')
         </div>
             <div class="col-md-9">
-
+            @include('profile.show')
             </div>
     </div>
 </div>

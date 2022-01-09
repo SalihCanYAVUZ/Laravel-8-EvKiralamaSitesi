@@ -2,11 +2,6 @@
                 <div class="sidebar">
                     <!-- User Widget -->
                     <div class="widget user">
-                        <!-- User Image -->
-                        <div class="image d-flex justify-content-center">
-                            <img src="{{asset('assets')}}/images/user/user-thumb.jpg" alt="" class="">
-                        </div>
-
                         <!-- User Name -->
                         <h5 class="text-center">{{Auth::user()->name}}</h5>
                     </div>

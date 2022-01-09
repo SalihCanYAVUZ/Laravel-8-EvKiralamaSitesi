@@ -11,13 +11,13 @@
             <div class="row">
                 <div class="col-12 d-flex no-block align-items-center">
                     <div class="card-body"><a href="{{route('admin_category_add')}}"><button type="button" class="btn btn-outline-dark">
-                            Add Category
+                            Kategori Ekle
                         </button></a></div>
                     <div class="ms-auto text-end">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Category </li>
+                                <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Kategori </li>
                             </ol>
                         </nav>
                     </div>
@@ -43,17 +43,17 @@
                                 <div class="row">
 
                                 </div>
-                                <h5 class="card-title">Categories</h5>
+                                <h5 class="card-title">Kategoriler</h5>
                                 <div class="table-responsive">
                                     <table id="zero_config" class="table table-striped table-bordered">
                                         <thead>
                                         <tr>
                                             <th>Id</th>
                                             <th>Parent</th>
-                                            <th>Title</th>
-                                            <th>Status</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
+                                            <th>Başlık</th>
+                                            <th>Statu</th>
+                                            <th>Düzenle</th>
+                                            <th>Sil</th>
                                         </tr>
                                         </thead>
                                         <tbody>

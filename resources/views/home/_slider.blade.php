@@ -4,7 +4,6 @@
             <div class="col-md-12">
                 <div class="section-title">
                     <h2>Kiralık Daireler</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, magnam.</p>
                 </div>
             </div>
         </div>

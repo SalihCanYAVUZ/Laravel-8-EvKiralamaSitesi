@@ -69,9 +69,7 @@
                                 <div class="product-slider">
                                     @foreach($datalist as $rs)
                                         <div><img class="img-fluid w-100" src="{{ Storage::url($rs->image)}}"></div>
-                                    @endforeach
 
-                                    @foreach($datalist as $rs)
                                     <div class="product-slider " style="height: 500px" data-image="{{ Storage::url($rs->image)}}"></div>
                                     @endforeach
 

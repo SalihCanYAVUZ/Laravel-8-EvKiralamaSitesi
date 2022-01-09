@@ -5,29 +5,8 @@
         <div class="col-md-12">
             <!-- Header Contetnt -->
             <div class="content-block">
-                <h1>Buy & Sell Near You </h1>
-                <p>Join the millions who buy and sell from each other <br> everyday in local communities around the world</p>
-                <div class="short-popular-category-list text-center">
-                    <h2>Popular Category</h2>
-                    <ul class="list-inline">
-                        <li class="list-inline-item">
-                            <a href="category.html"><i class="fa fa-home"></i> Hotel</a></li>
-
-                        <li class="list-inline-item">
-                            <a href="category.html"><i class="fa fa-home"></i> Fitness</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="category.html"><i class="fa fa-home"></i> Cars</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="category.html"><i class="fa fa-home"></i> Restaurants</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="category.html"><i class="fa fa-home"></i> Cafe</a>
-                        </li>
-                    </ul>
-                </div>
-
+                <h1>EVCİKUS'A HOŞGELDİNİZ </h1>
+                <p>Türkiye'nin en güvenilir ve en uygun ev kiralama sitesi..</p>
             </div>
         </div>
     </div>

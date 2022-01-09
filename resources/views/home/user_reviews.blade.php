@@ -49,13 +49,12 @@
             <thead>
             <tr>
                 <th>ID</th>
-                <th>Product</th>
-
-                <th>Review</th>
-                <th>Rate</th>
-                <th>Status</th>
-                <th>Date</th>
-                <th>Delete</th>
+                <th>İlan</th>
+                <th>Yorum</th>
+                <th>Oy</th>
+                <th>Statü</th>
+                <th>Tarih</th>
+                <th>Sil</th>
             </tr>
             </thead>
             <tbody>
@@ -71,9 +70,9 @@
                     <td>{{$rs->review}}</td>
                     <td>{{$rs->rate}}</td>
                     <td>{{$rs->status}}</td>
-                    <td>asdasdadsasd</td>
+                    <td>{{$rs->updated_at}}</td>
                     <td>
-                        <a href="{{route('user_review_delete',['id'=> $rs->id])}}" onclick="return confirm('Are you sure to delete?')">sdaadsads</a>
+                        <a href="{{route('user_review_delete',['id'=> $rs->id])}}" onclick="return confirm('Are you sure to delete?')"><i class="fa fa-trash" </a>
                     </td>
                 </tr>
             @endforeach

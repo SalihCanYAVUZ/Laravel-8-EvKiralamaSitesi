@@ -23,13 +23,13 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent" >
                         <ul class="navbar-nav ml-auto main-nav " >
-                            <a href="{{route('home')}}"> <button class="btn btn-default" type="button" >Home
+                            <a href="{{route('home')}}"> <button class="btn btn-default" type="button" >Anasayfa
                                 </button></a>
                             @php
                                 $parentCategories = \App\Http\Controllers\HomeController::categorylist()
                             @endphp
                             <div class="dropdown">
-                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Categories
+                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Kategoriler
                                     </button>
                                 <ul class="dropdown-menu">
                                     @foreach($parentCategories as $rs)
@@ -76,9 +76,6 @@
                                     </li>
                                     <li class="dropdown-submenu">
                                         <a href="{{route('myreviews')}}"> <i class="fa fa-comments"></i> Yorumlar</a>
-                                    </li>
-                                    <li class="dropdown-submenu">
-                                        <a href="#">  <i class="fa fa-cog" aria-hidden="true"></i> Ayarlar </a>
                                     </li>
                                     <li class="dropdown-submenu">
                                         <a href="{{route('logout')}}"> <i class="fa fa-sign-out" aria-hidden="true"></i> Logout  </a>

@@ -67,7 +67,7 @@
                                         <tr>
                                             <td>{{$rs->id}}</td>
                                             <td>{{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs->category, $rs->category->title)}}</td>
-                                            <td>{{$rs->title}}</td>
+                                            <td><a href="{{route('house',['id'=>$rs->id,'slug'=>$rs->slug])}}">{{$rs->title}}</a></td>
                                             <td>{{$rs->address}}</td>
                                             <td>{{$rs->price}}</td>
                                             <td>{{$rs->telno}}</td>

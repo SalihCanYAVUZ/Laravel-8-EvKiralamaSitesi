@@ -10,11 +10,11 @@
                 <div class="block about">
                     <!-- footer logo -->
                     <a class="logo-footer" href="{{route('home')}}">
-                    <img src="{{asset('assets')}}/images/logo-footer.png" alt=""></a>
+                    <img src="{{asset('assets')}}/images/logo.png" alt=""></a>
                     <!-- description -->
                     <p class="alt-color">
-                        <strong>Company:  </strong>{{$setting->company}}<br>
-                        <strong>Phone:  </strong>{{$setting->phone}}<br>
+                        <strong>Şirket:  </strong>{{$setting->company}}<br>
+                        <strong>Telefon:  </strong>{{$setting->phone}}<br>
                         <strong>Fax:  </strong>{{$setting->fax}}<br>
                         <strong>Email:  </strong>{{$setting->email}}<br>
                     </p>
@@ -23,33 +23,16 @@
             <!-- Link list -->
             <div class="col-lg-2 offset-lg-1 col-md-3">
                 <div class="block">
-                    <h4>Site Pages</h4>
+                    <h4>Sayfalar</h4>
                     <ul>
-                        <li><a href="#">Boston</a></li>
-                        <li><a href="{{route('contact')}}">Contact</a></li>
-                        <li><a href="{{route('aboutus')}}">About Us</a></li>
-                        <li><a href="{{route('references')}}">References</a></li>
-                        <li><a href="{{route('admin_login')}}">Login</a></li>
+                        <li><a href="{{route('contact')}}">İletişim</a></li>
+                        <li><a href="{{route('aboutus')}}">Hakkımızda</a></li>
+                        <li><a href="{{route('references')}}">Referanslarımız</a></li>
+                        <li><a href="{{route('login')}}">Giriş</a></li>
                     </ul>
                 </div>
             </div>
-            <!-- Link list -->
-            <div class="col-lg-2 col-md-3 offset-md-1 offset-lg-0">
-                <div class="block">
-                    <h4>Admin Pages</h4>
-                    <ul>
-                        <li><a href="category.html">Category</a></li>
-                        <li><a href="single.html">Single Page</a></li>
-                        <li><a href="store.html">Store Single</a></li>
-                        <li><a href="single-blog.html">Single Post</a>
-                        </li>
-                        <li><a href="blog.html">Blog</a></li>
 
-
-
-                    </ul>
-                </div>
-            </div>
         </div>
     </div>
     <!-- Container End -->
