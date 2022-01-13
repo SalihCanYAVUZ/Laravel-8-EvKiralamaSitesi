@@ -1,8 +1,8 @@
 <!-- footer -->
 <!-- ============================================================== -->
 <footer class="footer text-center">
-    All Rights Reserved by Matrix-admin. Designed and Developed by <a
-        href="https://www.wrappixel.com">WrapPixel</a>.
+   EvciKus ailesi olarak öncelik müşteri memnuniyetidir. <a
+        href="{{route('admin_home')}}">EvciKus.com</a>.
 </footer>
 
 <script src="{{asset('assets')}}/admin/assets/libs/jquery/dist/jquery.min.js"></script>

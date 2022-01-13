@@ -48,6 +48,7 @@
                 <!-- ad listing list  -->
                 <div class="ad-listing-list mt-20">
                     @foreach($datalist as $rs)
+                        @if($rs->status == 'True')
                     <div class="row p-lg-3 p-sm-5 p-4">
 
                         <div class="col-lg-4 align-self-center">
@@ -63,26 +64,23 @@
                                             <a href="{{route('house',['id'=>$rs->id,'slug'=>$rs->slug])}}"class="font-weight-bold">{{$rs->title}}</a>
                                         </div>
                                         <ul class="list-inline mt-2 mb-3">
-                                            <li class="list-inline-item"><a href="category.html"> <i class="fa fa-money"></i>
-                                                {{$rs->price}}</a></li>
-                                            <li class="list-inline-item"><a href=""><i class="fa fa-map-marker"></i>{{$rs->address}}</a></li>
-
+                                            <li class="list-inline-item"> <i class="fa fa-money"></i>{{$rs->price}}</li>
+                                            <li class="list-inline-item"><i class="fa fa-map-marker"></i>{{$rs->address}}</li>
                                         </ul>
                                         <p class="pr-5">{{$rs->description}}</p>
-                                        <div>
-                                            <br>
-                                            <a href="{{route('addtofav',['id'=>$rs->id])}}"><i style="font-size:28px;" class="fa fa-heart-o" ></i> </a>                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                     </div>
+                        @endif
                     @endforeach
                 </div>
                 <!-- ad listing list  -->
             </div>
         </div>
+    </div>
     </div>
 </section>
 

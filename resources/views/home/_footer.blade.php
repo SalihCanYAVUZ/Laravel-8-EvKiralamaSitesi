@@ -21,14 +21,14 @@
                 </div>
             </div>
             <!-- Link list -->
-            <div class="col-lg-2 offset-lg-1 col-md-3">
+            <div class="col-lg-2 offset-lg-3 col-md-3">
                 <div class="block">
-                    <h4>Sayfalar</h4>
+                    <h4>Sayfalarımız</h4>
                     <ul>
-                        <li><a href="{{route('contact')}}">İletişim</a></li>
+                        <li><a href="{{route('contact')}}">İletişim</a> </li>
                         <li><a href="{{route('aboutus')}}">Hakkımızda</a></li>
+                        <li><a href="{{route('faq')}}">Sıkça Sorulan Sorular</a></li>
                         <li><a href="{{route('references')}}">Referanslarımız</a></li>
-                        <li><a href="{{route('login')}}">Giriş</a></li>
                     </ul>
                 </div>
             </div>

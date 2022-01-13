@@ -41,10 +41,13 @@
 
 
 @include('home._header')
+<div class="container">
+<div class="row">
+<div class="col-md-3">
+    @include('home.usermenu')
+</div>
 
-<div class="col-12">
-    <div class="col-9 col-md-offset-3">
-        <hr>
+    <div class="col-md-8">
         <table class="table">
             <thead>
             <tr>
@@ -63,8 +66,7 @@
                 <tr>
                     <td>{{$rs->id}}</td>
                     <td><a href="{{route('house',['id'=> $rs->house->id, 'slug' => $rs->house->slug])}}" target="_blank">
-
-                            {{$rs->house->title}}    </a>
+                            {{$rs->house->title}}</a>
                     </td>
 
                     <td>{{$rs->review}}</td>
@@ -79,11 +81,9 @@
             </tbody>
         </table>
     </div><! --/content-panel -->
-    <div class="col-3">
-        @include('home.usermenu')
+</div>
+</div>
 
-    </div>
-</div><!-- /col-md-12 -->
 
 
 @include('home._footer')

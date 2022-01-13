@@ -14,6 +14,7 @@
                 <div class="row">
 
                     @foreach($daily as $rs)
+                        @if($rs->status == 'True')
                     <!-- Category list -->
                     <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
                         <div class="category-block">
@@ -27,12 +28,11 @@
                                 <li class="list-inline-item"><a href="#"> <i class="fa fa-money"></i>
                                         {{$rs->price}}</a></li>
                                 <li class="list-inline-item"><a href="{{route('house',['id'=>$rs->id,'slug'=>$rs->slug])}}"><i class="fa fa-check"></i>{{$rs->title}}</a></li>
-                                <div>
-                                    <br>
-                                    <a href="{{route('addtofav',['id'=>$rs->id])}}"><i style="font-size:28px;" class="fa fa-heart-o" ></i> </a>                                </div>
+
                             </ul>
                         </div>
                     </div> <!-- /Category List -->
+                    @endif
                     @endforeach
                 </div>
             </div>

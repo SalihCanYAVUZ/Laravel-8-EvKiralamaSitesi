@@ -12,6 +12,7 @@
             <div class="col-lg-12">
                 <div class="trending-ads-slide">
                     @foreach($slider as $rs)
+                        @if($rs->status == 'True')
                     <div class="col-sm-12 col-lg-4">
                         <!-- product card -->
                         <div class="product-item bg-light">
@@ -33,17 +34,12 @@
                                         </li>
                                     </ul>
                                     <p class="card-text"> {{$rs->description}}</p>
-                                    <div class="product-ratings">
-                                        <ul class="list-inline">
-                                            <div>
-                                                <br>
-                                                <a href="{{route('addtofav',['id'=>$rs->id])}}"><i style="font-size:28px;" class="fa fa-heart-o" ></i> </a>                                            </div>
-                                        </ul>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
+                        @endif
                     @endforeach
                 </div>
             </div>

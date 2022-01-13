@@ -34,10 +34,10 @@ class HomeController extends Controller
     public function index()
     {
         $setting = Setting::first();
-        $slider = House::select('id','title','image','price','address','description','slug')->limit(4)->get();
-        $daily = House::select('id','title','image','price','address','description','slug')->limit(4)->inRandomOrder()->get();
-        $last = House::select('id','title','image','price','address','description','slug')->limit(4)->orderByDesc('id')->get();
-        $picked = House::select('id','title','image','price','address','description','slug')->limit(4)->inRandomOrder()->get();
+        $slider = House::select('id','title','status','image','price','address','description','slug')->limit(4)->get();
+        $daily = House::select('id','title','status','image','price','address','description','slug')->limit(4)->inRandomOrder()->get();
+        $last = House::select('id','title','status','image','price','address','description','slug')->limit(4)->orderByDesc('id')->get();
+        $picked = House::select('id','title','status','image','price','address','description','slug')->limit(4)->inRandomOrder()->get();
 
         #print_r($last);
         #exit();

@@ -38,7 +38,7 @@
                 <div class="card card-hover">
                     <a href="{{ route('admin_category') }}">
                     <div class="box bg-success text-center">
-                        <h1 class="font-light text-white"><i class="mdi mdi-chart-areaspline"></i></h1>
+                        <h1 class="font-light text-white"><i class="mdi mdi-tag"></i></h1>
                         <h6 class="text-white">Kategoriler</h6>
                     </div>
                     </a>
@@ -60,7 +60,7 @@
                 <div class="card card-hover">
                     <a href="{{ route('admin_message') }}">
                     <div class="box bg-danger text-center">
-                        <h1 class="font-light text-white"><i class="mdi mdi-border-outside"></i></h1>
+                        <h1 class="font-light text-white"><i class="mdi mdi-message"></i></h1>
                         <h6 class="text-white">İletişim Mesajları</h6>
                     </div>
                     </a>
@@ -71,7 +71,7 @@
                 <div class="card card-hover">
                     <a href="{{ route('admin_setting') }}">
                     <div class="box bg-info text-center">
-                        <h1 class="font-light text-white"><i class="mdi mdi-arrow-all"></i></h1>
+                        <h1 class="font-light text-white"><i class="mdi mdi-settings"></i></h1>
                         <h6 class="text-white">Ayarlar</h6>
                     </div>
                     </a>

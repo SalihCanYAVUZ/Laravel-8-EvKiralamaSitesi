@@ -51,6 +51,7 @@ class HouseController extends Controller
         $data->category_id= $request ->input('category_id');
         $data->user_id= Auth::id();
         $data->price= $request ->input('price');
+        $data->telno= $request ->input('telno');
         $data->warming= $request ->input('warming');
         $data->balcony= $request ->input('balcony');
         $data->m2= $request ->input('m2');

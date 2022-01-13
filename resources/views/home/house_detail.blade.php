@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-
     <!-- SITE TITTLE -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{$data -> title}}</title>
-
     <!-- FAVICON -->
     <link href="{{asset('assets')}}/img/favicon.png" rel="shortcut icon">
     <!-- PLUGINS CSS STYLE -->
@@ -26,20 +23,14 @@
     <link href="{{asset('assets')}}/plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet">
     <!-- CUSTOM CSS -->
     <link href="{{asset('assets')}}/css/style.css" rel="stylesheet">
-
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
-
 <body class="body-wrapper">
-
-
 @include('home._header')
 <div class="section">
     <div class="container">
@@ -66,14 +57,10 @@
                                 @endphp
 
                                 <!-- product slider -->
-                                <div class="product-slider">
+                                <div class="post-slider">
                                     @foreach($datalist as $rs)
-                                        <div><img class="img-fluid w-100" src="{{ Storage::url($rs->image)}}"></div>
-
-                                    <div class="product-slider " style="height: 500px" data-image="{{ Storage::url($rs->image)}}"></div>
+                                        <div><img class="img-fluid w-100" src="{{ \Illuminate\Support\Facades\Storage::url($rs->image)}}"></div>
                                     @endforeach
-
-
                                 </div>
                                 <!-- product slider -->
 
@@ -143,25 +130,6 @@
                                                     <div class="review-heading">
                                                         <div><a href="#"><i class="fa fa-user-o"></i>{{$rs->user->name}} </a> </div>
                                                         <div><a href="#"><i class="fa fa-clock-o"></i>{{$rs->created_at}} </a> </div>
-                                                        <div class="ratings">
-                                                            <ul class="list-inline">
-                                                                <li class="list-inline-item">
-                                                                    <i class="fa fa-star @if($rs->rate<1) -o empty @endif"></i>
-                                                                </li>
-                                                                <li class="list-inline-item">
-                                                                    <i class="fa fa-star @if($rs->rate<2) -o empty @endif"></i>
-                                                                </li>
-                                                                <li class="list-inline-item">
-                                                                    <i class="fa fa-star @if($rs->rate<3) -o empty @endif"></i>
-                                                                </li>
-                                                                <li class="list-inline-item">
-                                                                    <i class="fa fa-star @if($rs->rate<4) -o empty @endif"></i>
-                                                                </li>
-                                                                <li class="list-inline-item">
-                                                                    <i class="fa fa-star @if($rs->rate<5) -o empty @endif"></i>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
                                                         <div class="review-body">
                                                             <strong>{{$rs->subject}}</strong>
                                                             <p>{{$rs->review}}</p>
@@ -171,7 +139,6 @@
                                             @endforeach
                                         </div>
                                                 <div class="col-md-12">
-                                                    <h4 class="text">Yorumunuzu yazınız..</h4>
                                                     @livewire('review', ['id'=>$data->id])
                                                 </div>
                                     </div>
@@ -209,10 +176,6 @@
 </div>
 </div>
 </div>
-
-
 @include('home._footer')
-
 </body>
-
 </html>

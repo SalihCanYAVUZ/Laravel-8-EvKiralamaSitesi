@@ -9,12 +9,13 @@
                     <div class="widget user-dashboard-menu">
                         <ul>
                             <li class="">
-                                <a href="{{route('myprofile')}}"><i class="fa fa-user-o"></i> Profilim</a> </li>
-                            <li>
-                                <a href="dashboard-favourite-ads.html"><i class="fa fa-heart-o"></i> Favorilerim </a>
+                                <a href="{{route('myprofile')}}"><i class="fa fa-user-o"></i> Profilim</a>
                             </li>
                             <li>
                                 <a href="{{route('user_house')}}"><i class="fa fa-home"></i>İlanlarım </a>
+                            </li>
+                            <li>
+                                <a href="{{route('myreviews')}}"><i class="fa fa-comments"></i>Yorumlarım </a>
                             </li>
                             <li>
                                 <a href="{{route('logout')}}"><i class="fa fa-cog"></i> Logout</a>

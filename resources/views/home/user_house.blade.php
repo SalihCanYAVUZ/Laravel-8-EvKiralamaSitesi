@@ -42,20 +42,20 @@
 
 @include('home._header')
 
-
+<div class="container">
     <div class="row">
         <!-- SIDEMENU -->
         <div class="col-md-3">
             @include('home.usermenu')
         </div>
 
-        <div class="col-md-8">
+        <div class="col-md-9">
             <div class="card-body"><a href="{{route('user_house_add')}}"><button type="button" class="btn btn-outline-dark">
                         Ev Ekle
                     </button></a></div>
             @include('home.message')
         <h5 class="card-title"></h5>
-        <div class="table-responsive">
+        <div>
             <table id="zero_config" class="table table-striped table-bordered">
                 <thead>
                 <tr>
@@ -106,6 +106,7 @@
 
         </div>
     </div>
+</div>
 </div>
 
 

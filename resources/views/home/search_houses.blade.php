@@ -50,6 +50,7 @@
                 <!-- ad listing list  -->
                 <div class="ad-listing-list mt-20">
                     @foreach($datalist as $rs)
+                        @if($rs->status == 'True')
                     <div class="row p-lg-3 p-sm-5 p-4">
 
                         <div class="col-lg-4 align-self-center">
@@ -71,15 +72,14 @@
 
                                         </ul>
                                         <p class="pr-5">{{$rs->description}}</p>
-                                        <div>
-                                            <br>
-                                            <a href="{{route('addtofav',['id'=>$rs->id])}}"><i style="font-size:28px;" class="fa fa-heart-o" ></i> </a>                                        </div>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                     </div>
+                        @endif
                     @endforeach
                 </div>
                 <!-- ad listing list  -->

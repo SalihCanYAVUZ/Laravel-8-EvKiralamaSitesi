@@ -66,16 +66,13 @@
 
                                 <ul class="dropdown-menu">
                                     <li class="dropdown-submenu">
-                                        <a href="{{route('myprofile')}}"> <i class="fa fa-user"></i> Profil</a>
-                                    </li>
-                                    <li class="dropdown-submenu">
-                                        <a href="#"> <i class="fa fa-heart"></i> Favoriler</a>
+                                        <a href="{{route('myprofile')}}"> <i class="fa fa-user"></i> Profilim</a>
                                     </li>
                                     <li class="dropdown-submenu">
                                         <a href="{{route('user_house')}}"> <i class="fa fa-home"></i> İlanlarım</a>
                                     </li>
                                     <li class="dropdown-submenu">
-                                        <a href="{{route('myreviews')}}"> <i class="fa fa-comments"></i> Yorumlar</a>
+                                        <a href="{{route('myreviews')}}"> <i class="fa fa-comments"></i> Yorumlarım</a>
                                     </li>
                                     <li class="dropdown-submenu">
                                         <a href="{{route('logout')}}"> <i class="fa fa-sign-out" aria-hidden="true"></i> Logout  </a>

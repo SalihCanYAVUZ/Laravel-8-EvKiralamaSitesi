@@ -20,7 +20,6 @@ class Review extends Model
         'ip',
         'subject',
         'review',
-        'rate',
     ];
     public function house(){
         return $this->belongsTo(House::class);
