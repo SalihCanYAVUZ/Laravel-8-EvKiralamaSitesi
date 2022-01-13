@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
     <!-- SITE TITTLE -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{$data -> title}}</title>
+    <meta name="description" content="{{$data->description}}">
+    <meta name="keywords" content="{{$data->keywords}}">
+    <meta name="author" content="Salih Can YAVUZ">
     <!-- FAVICON -->
     <link href="{{asset('assets')}}/img/favicon.png" rel="shortcut icon">
     <!-- PLUGINS CSS STYLE -->

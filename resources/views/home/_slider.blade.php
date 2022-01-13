@@ -19,7 +19,7 @@
                             <div class="card">
                                 <div class="thumb-content">
                                     <!-- <div class="price">$200</div> -->
-                                    <a href="single.html">
+                                    <a href="{{route('house',['id'=>$rs->id,'slug'=>$rs->slug])}}">
                                         <img class="card-img-top img-fluid" src="{{ Storage::url($rs->image)}}" style="height: 275px" alt="Card image cap">
                                     </a>
                                 </div>

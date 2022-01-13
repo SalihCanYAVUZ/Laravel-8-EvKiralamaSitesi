@@ -7,7 +7,7 @@
                     @livewire('search')
                     <div class="form-row">
                         <div class="form-group col-md-3 align-self-center">
-                            <button type="submit" class="btn btn-primary">Search Now</button>
+                            <button type="submit" class="btn btn-primary">Arama</button>
                         </div>
                     </div>
                 </form>
